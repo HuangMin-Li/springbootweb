@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" th:src="@{index.js}"></script>
+    <link th:href="@{index.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div th:include="common/common::header"></div>
+
+    <h2 th:text="${msg}"> hello</h2>
+
+<!--<a href="/i18n?lang=en_US">English</a> | <a href="/i18n?lang=zh_CN">中文</a>-->
+
+<div th:include="common/common::footer"></div>
+</body>
+</html>

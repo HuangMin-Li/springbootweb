@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>
+        欢迎您：<span th:text="${user.name}">请登录</span>
+    </h1>
+       <!-- <br>
+        <span th:text="|欢迎您:${user.name}|"></span>-->
+
+
+            <p>用户详情</p>
+            <p>id: <span th:text="${user.id}">21</span>.</p>
+            <p>Name: <span th:text="${user.name}">成龙</span>.</p>
+            <p>friend: <span th:text="${user.friend.name}">李小龙</span>.</p>
+        <!--简化-->
+        <!--<h2 th:object="${user}">
+            <p>id: <span th:text="*{id}">21</span>.</p>
+            <p>Name: <span th:text="*{name}">成龙 </span>.</p>
+            <p>friend: <span th:text="*{friend.name}">李小龙</span>.</p>
+        </h2>-->
+        <div th:switch="${user.id}">
+            <p th:case="1">该用户是管理员</p>
+            <p th:case="2">该用户是经理</p>
+            <p th:case="*">该用户身份不明</p>
+        </div>
+    姓名：<input id="name" name="name" th:value="${user.name}"/>
+
+
+        <script th:inline="javascript">
+            const user = /*[[${user}]]*/ {};
+            const id = /*[[${user.id}]]*/ 20;
+            console.log(user);
+            console.log(id)
+        </script>
+        <div th:if="true">
+            你填的是true
+        </div>
+        <p>
+            <span th:if="${user.id} < 10">id<10</span>
+        </p>
+
+</body>
+</html>
